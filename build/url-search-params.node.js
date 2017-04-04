@@ -255,4 +255,4 @@ URLSearchParamsProto.toString = function toString() {
   return query.join('&');
 };
 
-module.exports = global.URLSearchParams || URLSearchParams;
+module.exports = URLSearchParams;
