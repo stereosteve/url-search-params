@@ -139,6 +139,20 @@ URLSearchParamsProto.has = function has(name) {
   return name in this[secret];
 };
 
+URLSearchParamsProto.hasPair = function hasPair(name, value) {
+  var vals = this.getAll(name);
+  return vals.indexOf(value) != -1;
+};
+
+URLSearchParamsProto.deletePair = function deletePair(name, value) {
+  var vals = this.getAll(name);
+  var idx = vals.indexOf(value);
+  if (idx != -1) {
+    vals.splice(idx, 1);
+    this[secret][name] = vals;
+  }
+};
+
 URLSearchParamsProto.set = function set(name, value) {
   this[secret][name] = ['' + value];
 };

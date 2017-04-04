@@ -222,6 +222,26 @@ wru.test([
       wru.assert('correct loop value', results[2].value === '3');
       wru.assert('correct loop object', results[2].object === usp);
     }
+  }, {
+    name: 'hasPair',
+    test: function() {
+      var usp = new URLSearchParams('a=1&a=2&b=3&c=4');
+      wru.assert('hasPair a=1', usp.hasPair('a', '1'));
+      wru.assert('hasPair a=2', usp.hasPair('a', '2'));
+      wru.assert('!hasPair a=3', !usp.hasPair('a', '3'));
+    }
+  }, {
+    name: 'deletePair',
+    test: function() {
+      var usp = new URLSearchParams('a=1&a=2&b=3&c=4');
+      wru.assert('hasPair a=1', usp.hasPair('a', '1'));
+      wru.assert('hasPair a=2', usp.hasPair('a', '2'));
+      wru.assert('!hasPair a=3', !usp.hasPair('a', '3'));
+      usp.deletePair('a', '2');
+      wru.assert('hasPair a=1', usp.hasPair('a', '1'));
+      wru.assert('!hasPair a=2', !usp.hasPair('a', '2'));
+      wru.assert('!hasPair a=3', !usp.hasPair('a', '3'));
+    }
   }
 ].concat(
   /^function|object$/.test(typeof HTMLAnchorElement) && ('searchParams' in HTMLAnchorElement.prototype) ?
