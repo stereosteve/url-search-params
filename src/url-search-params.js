@@ -135,6 +135,17 @@ URLSearchParamsProto.set = function set(name, value) {
   this[secret][name] = ['' + value];
 };
 
+URLSearchParamsProto.setMany = function setMany(name, values) {
+  if (isArray(values)) {
+    this.delete(name);
+    for (var i = 0; i < values.length; i++) {
+      this.append(name, values[i]);
+    }
+  } else {
+    this.set(name, values);
+  }
+};
+
 URLSearchParamsProto.forEach = function forEach(callback, thisArg) {
   var dict = this[secret];
   Object.getOwnPropertyNames(dict).forEach(function(name) {

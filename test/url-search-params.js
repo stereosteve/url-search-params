@@ -242,6 +242,24 @@ wru.test([
       wru.assert('!hasPair a=2', !usp.hasPair('a', '2'));
       wru.assert('!hasPair a=3', !usp.hasPair('a', '3'));
     }
+  }, {
+    name: 'setMany',
+    test: function() {
+      var usp = new URLSearchParams('a=1&a=2&b=3&c=4');
+      usp.setMany('a', [3, 4]);
+      wru.assert('replaces existing', !usp.hasPair('a', '1'));
+      wru.assert('replaces existing', !usp.hasPair('a', '2'));
+      wru.assert('sets new', usp.hasPair('a', '3'));
+      wru.assert('sets new', usp.hasPair('a', '4'));
+
+      usp.setMany('a', 3);
+      wru.assert('handles single values', usp.hasPair('a', '3'));
+      wru.assert('handles single values', !usp.hasPair('a', '4'));
+
+      usp.setMany('a', []);
+      wru.assert('deletes on empty', !usp.hasPair('a', '3'));
+      wru.assert('deletes on empty', usp.getAll('a').length == 0);
+    }
   }
 ].concat(
   /^function|object$/.test(typeof HTMLAnchorElement) && ('searchParams' in HTMLAnchorElement.prototype) ?

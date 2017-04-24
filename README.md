@@ -1,4 +1,8 @@
-fork adds some extra helper methods: `hasPair(name, value)` and `deletePair(name, value)`.
+fork adds some extra helper methods:
+
+* `hasPair(name, value)`
+* `deletePair(name, value)`
+* `setMany(name, [v1, v2, v3])`
 
 ---
 
