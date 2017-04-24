@@ -1,9 +1,9 @@
 {
-  "version": "0.7.0",
+  "version": "1.7.0",
   "license": "MIT",
-  "name": "url-search-params",
-  "description": "Simple polyfill for URLSearchParams standard",
-  "homepage": "https://github.com/WebReflection/url-search-params",
+  "name": "url-search-params-plus",
+  "description": "URLSearchParams standard with extras",
+  "homepage": "https://github.com/stereosteve/url-search-params",
   "keywords": [
     "DOM",
     "URLSearchParams",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/WebReflection/url-search-params.git"
+    "url": "git://github.com/stereosteve/url-search-params.git"
   },
   "main": "./build/url-search-params.node.js",
   "scripts": {

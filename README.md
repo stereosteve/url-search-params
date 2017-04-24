@@ -1,3 +1,6 @@
+url-search-params-plus
+======================
+
 fork adds some extra helper methods:
 
 * `hasPair(name, value)`
